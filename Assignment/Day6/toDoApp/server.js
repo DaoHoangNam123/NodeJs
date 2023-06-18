@@ -12,6 +12,10 @@ var taskArr = [
 app.get("/todo-list", (request, response) => {
   response.json(taskArr);
 });
+app.get("/todo/complete", (request, response) => {
+  const completeTaskArr = taskArr.filter((task) => task.status === "complete");
+  response.json(completeTaskArr);
+});
 app.post("/addTask", (request, response) => {
   var taskTobeInserted = request.body;
   if (taskTobeInserted != {}) {
